@@ -1,0 +1,14 @@
+.pokemon-listing {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    margin: 2rem auto;
+}
+
+.pokemon-listing {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
