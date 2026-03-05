@@ -1,3 +1,6 @@
+let currentOffset = 0
+let limit = 20
+
 const main = document.querySelector(".main")
 const header = document.querySelector(".header")
 
@@ -9,77 +12,90 @@ const mainString = /* html */ `
 `
 main.insertAdjacentHTML("beforeend", mainString)
 const pokemonListingDom = document.querySelector(".pokemon-listing")
-const url = new URL("https://pokeapi.co/api/v2/pokemon?limit=25&offset=0")
+
+
+function fetchPokemon(currentOffset) {
+    let url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${currentOffset}`
+
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // console.log(url);
+            displayPokemons(data)
+        }
+        )
+}
 
 
 
+function displayPokemons(data) {
 
-const headerString = /* html */`
-    <section class="headline">
-    <h1>Pokédex</h1>
-    <img src="/img/PokeBall.svg" alt="pokeball image logo" class="pokeballings">
-    </section>
-    <div class="search"> 
-        <input type="search" placeholder="Search">
-        <button>
-            #
-        </button>
-    </div>
-`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-fetch(url)
-    .then(response => response.json())
-    .then(data => data.results.forEach(pokemon => {
+    const pokemonString = data.results.map((pokemon) => {
         const pokemonUrl = pokemon.url
         const urlNumber = /(\d+)\/$/;
         const urlFound = pokemonUrl.match(urlNumber);
-        console.log(urlFound);
-        // const picture = new URL(pokemon.url)
 
 
-        const listPokemonString = /* html */`
+
+
+
+        return /* html */`
             <li class="pokemon">
                 <small class="number">#${urlFound[1]}</small>
                 <figure class="pokemon-image">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${urlFound[1]}.png" alt="${pokemon.name}">
+                <a href="detalje.html?id=${urlFound[1]}">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${urlFound[1]}.png" alt="${pokemon.name}">
                         <figcaption class="pokemon-name">
-                            <a href="detalje.html?id=${urlFound[1]}">
-                            ${pokemon.name}
-                            </a>
+                                ${pokemon.name}
                         </figcaption>
+                        </a>
                 </figure>
             </li>
         `
-        // console.log(picture);
 
-        console.log(pokemon);
-        pokemonListingDom.insertAdjacentHTML("beforeend", listPokemonString)
-    }))
+
+    }).join("")
+
+    pokemonListingDom.insertAdjacentHTML("beforeend", pokemonString)
+
+    let observedPokemon = document.querySelector(".pokemon-listing .pokemon:nth-last-child(5)")
+    console.log(observedPokemon);
+
+    observer.observe(observedPokemon)
+
+}
+
+
+fetchPokemon()
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            currentOffset += 20
+            console.log(currentOffset);
+            observer.unobserve(entry.target)
+            fetchPokemon(currentOffset)
+        }
+    })
+}, {
+    threshold: 1
+})
+
+
+const headerString = /* html */
+    `
+        <section class="headline">
+            <h1>Pokédex</h1>
+            <img src="/img/PokeBall.svg" alt="pokeball image logo" class="pokeballings">
+        </section>
+        <div class="search"> 
+            <input type="search" placeholder="Search" class="inputting">
+            <button>
+            #
+            </button>
+        </div>
+    `
+header.insertAdjacentHTML("beforeend", headerString)
+
+
