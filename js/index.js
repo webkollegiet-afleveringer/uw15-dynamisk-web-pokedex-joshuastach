@@ -1,7 +1,7 @@
 let currentOffset = 0
 let limit = 20
 
-const main = document.querySelector(".main")
+const mains = document.querySelector(".main")
 const header = document.querySelector(".header")
 
 const mainString = /* html */ `
@@ -10,7 +10,7 @@ const mainString = /* html */ `
     </ul>
 
 `
-main.insertAdjacentHTML("beforeend", mainString)
+mains.insertAdjacentHTML("beforeend", mainString)
 const pokemonListingDom = document.querySelector(".pokemon-listing")
 
 
@@ -47,20 +47,20 @@ function displayPokemons(data) {
                 <a href="detalje.html?id=${urlFound[1]}">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${urlFound[1]}.png" alt="${pokemon.name}">
                         <figcaption class="pokemon-name">
+                        <h2 class="pokemon-name">
                                 ${pokemon.name}
+                        </h2>
                         </figcaption>
                         </a>
                 </figure>
             </li>
         `
-
-
     }).join("")
 
     pokemonListingDom.insertAdjacentHTML("beforeend", pokemonString)
 
     let observedPokemon = document.querySelector(".pokemon-listing .pokemon:nth-last-child(5)")
-    console.log(observedPokemon);
+    // console.log(observedPokemon);
 
     observer.observe(observedPokemon)
 
@@ -73,7 +73,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             currentOffset += 20
-            console.log(currentOffset);
+            // console.log(currentOffset);
             observer.unobserve(entry.target)
             fetchPokemon(currentOffset)
         }
@@ -90,7 +90,7 @@ const headerString = /* html */
             <img src="/img/PokeBall.svg" alt="pokeball image logo" class="pokeballings">
         </section>
         <div class="search"> 
-            <input type="search" placeholder="Search" class="inputting">
+            <input type="search" placeholder="Search" class="inputting search">
             <button>
             #
             </button>
