@@ -70,7 +70,7 @@ function displayPokemon(data) {
 }
 
 
-// fetchPokemon()
+fetchPokemon()
 
 // const observer = new IntersectionObserver((entries) => {
 //     entries.forEach((entry) => {
