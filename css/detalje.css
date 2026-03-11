@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    margin-left: 0.45rem;
+    margin-right: 0.45rem;
+    padding: 0;
+}
+
+header p {
+    margin: 0;
+}
+
+.arrow {
+    color: white;
+
+}
+
+.context {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.context p {
+    margin-left: auto;
+    margin-right: 5vh;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vh;
+    text-decoration: none;
+    color: white;
+    margin-left: 1.5rem;
+}
+
+.poké-info {
+    margin-top: 20rem;
+    height: auto;
+    background-color: white;
+    padding-top: 5rem;
+    height: auto;
+    padding-bottom: 2.5rem;
+    position: relative;
+}
+
+h1 {
+    font-weight: 900;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+}
+
+.h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.arrow-form {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    margin-top: auto;
+    margin-bottom: 10%;
+}
+
+.left {
+    transform: rotateY(180deg);
+}
+
+.poké-form {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.pokémon-img {
+    width: 560px;
+    height: 560px;
+    justify-content: center;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.about {
+    margin: 0 auto;
+    font-size: 1.8rem;
+}
+
+.pills {
+    display: flex;
+    gap: 2rem;
+    width: auto;
+    margin: 2rem auto;
+}
+
+.pills p {
+    padding: 0.5rem 1.8rem;
+    display: flex;
+    margin: auto auto;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.pills p:first-child {
+    text-transform: capitalize
+}
+
+.pills div {
+    border-radius: 1rem;
+}
+
+.w-h-m {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    height: 3.5rem;
+    margin-top: 1.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+}
+
+
+
+.weight {
+    display: flex;
+    justify-content: center;
+}
+
+.weight img {
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0.2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.weight figcaption {
+    margin-bottom: auto;
+
+}
+
+.ruler {
+    margin-left: auto;
+    margin-right: 0.2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.weight figcaption p,
+.height figcaption p {
+    margin-right: auto;
+    margin-left: 0.2rem;
+}
+
+
+.weight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.height {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+
+.weight img,
+.height img {
+    width: 25px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.height img {
+    transform: rotateZ(90deg);
+    height: 15px;
+}
+
+.weight figcaption,
+.height figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.weight figcaption,
+.height figcaption,
+.ability figcaption {
+    margin-bottom: 0.5rem;
+}
+
+.two-col {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+.w-h-m figure {
+    margin: 0 2rem;
+}
+
+.ability {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.ability figcaption p {
+    margin-bottom: 0.425rem;
+    font-size: large;
+}
+
+.ability p {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.description {
+    width: 80%;
+    margin: 5rem auto;
+    display: flex;
+}
+
+.text {
+    font-size: 1.3rem;
+    display: flex;
+    text-align: justify;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.wrapping-container-something {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.wrapping-container-something p:last-child {
+    color: black;
+}
